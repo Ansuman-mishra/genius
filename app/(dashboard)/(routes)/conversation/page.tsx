@@ -38,7 +38,12 @@ const ConversationPage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
+            if (values.prompt.trim() === "") {
+                toast.error("input box cannot be empty.");
+                return;
+            }
             const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
+            console.log("values.prompt.trim()", values.prompt.trim());
             const newMessages = [...messages, userMessage];
 
             const response = await axios.post("/api/conversation", { messages: newMessages });

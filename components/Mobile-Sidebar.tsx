@@ -25,7 +25,7 @@ export const MobileSidebar = ({ apiLimitCount = 0, isPro = false }: { apiLimitCo
                     <Menu />
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0">
+            <SheetContent side="left" className="p-0 text-white">
                 <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
             </SheetContent>
         </Sheet>
